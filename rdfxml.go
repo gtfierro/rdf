@@ -92,6 +92,10 @@ func newRDFXMLDecoder(r io.Reader) *rdfXMLDecoder {
 	return &rdfXMLDecoder{dec: xml.NewDecoder(r), nextState: parseXMLTopElem}
 }
 
+func (d *rdfXMLDecoder) Namespaces() map[string]string {
+	return make(map[string]string)
+}
+
 // SetOption sets a ParseOption to the give value
 func (d *rdfXMLDecoder) SetOption(o ParseOption, v interface{}) error {
 	switch o {

@@ -37,6 +37,10 @@ func newTTLDecoder(r io.Reader) *ttlDecoder {
 	}
 }
 
+func (d *ttlDecoder) Namespaces() map[string]string {
+	return d.ns
+}
+
 // SetOption sets a ParseOption to the give value
 func (d *ttlDecoder) SetOption(o ParseOption, v interface{}) error {
 	switch o {

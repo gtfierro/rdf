@@ -18,6 +18,10 @@ func newNTDecoder(r io.Reader) *ntDecoder {
 	return &ntDecoder{l: newLineLexer(r)}
 }
 
+func (d *ntDecoder) Namespaces() map[string]string {
+	return make(map[string]string)
+}
+
 // Decode parses a N-Triples document and returns the next valid Triple or an error.
 func (d *ntDecoder) Decode() (t Triple, err error) {
 	defer d.recover(&err)

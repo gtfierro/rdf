@@ -49,6 +49,9 @@ type TripleDecoder interface {
 	// SetOption sets a parsing option to the given value. Not all options
 	// are supported by all serialization formats.
 	SetOption(ParseOption, interface{}) error
+
+	// returns namespaces from decoding
+	Namespaces() map[string]string
 }
 
 // NewTripleDecoder returns a new TripleDecoder capable of parsing triples
